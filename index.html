@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pratiksha | Web Application Developer</title>
+<meta name="description" content="Pratiksha, MCA graduate from Savitribai Phule Pune University. Web applications with machine learning built in. Open to fresher and junior roles in Maharashtra.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EDF1F6;--surface:#FFFFFF;--ink:#16213F;--muted:#51607F;--line:#C9D3E2;--accent:#F2A900;--on-accent:#16213F;--link:#1F3FA8;--chip:#E3E9F2;--ok:#1B7F4B;--warn:#B3261E;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;--body:"Source Serif 4",Georgia,serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1729;--surface:#17213B;--ink:#E8EDF7;--muted:#9AA8C7;--line:#2A3858;--link:#8FA8FF;--chip:#22304F;--ok:#5FD08F;--warn:#FF8A80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1729;--surface:#17213B;--ink:#E8EDF7;--muted:#9AA8C7;--line:#2A3858;--link:#8FA8FF;--chip:#22304F;--ok:#5FD08F;--warn:#FF8A80;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.65 var(--body)}
+a{color:var(--link)}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+header.top{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 0;font:600 16px var(--display)}
+header.top nav{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+header.top a{color:var(--ink);text-decoration:none}
+header.top a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-decoration-thickness:3px;text-underline-offset:6px}
+.hero{position:relative;padding:48px 0 56px}
+.hero::before{content:"";position:absolute;inset:-40px -24px auto;height:520px;pointer-events:none;background:radial-gradient(420px circle at var(--mx,70%) var(--my,30%),color-mix(in srgb,var(--accent) 28%,transparent),transparent 70%)}
+.hero>*{position:relative}
+.hero h1{font:800 clamp(42px,8vw,92px)/1 var(--display);letter-spacing:-0.035em;margin:0 0 24px;max-width:13ch}
+.hero .lead{font-size:clamp(19px,2.3vw,22px);max-width:35em;color:var(--muted);margin:0 0 28px}
+.hero .lead b{color:var(--ink);font-weight:600}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{font:600 16px var(--display);padding:12px 20px;border-radius:8px;text-decoration:none;border:2px solid var(--ink);color:var(--ink);background:transparent;cursor:pointer}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+section{padding:56px 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(28px,4vw,40px)/1.1 var(--display);letter-spacing:-0.02em;margin:0 0 12px}
+.sub{color:var(--muted);margin:0 0 28px;max-width:38em}
+/* browser window */
+.win{background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 18px 40px -24px rgba(10,20,50,.45)}
+.panel{padding:30px 26px;display:grid;gap:26px}
+.panel+.panel{border-top:1px solid var(--line)}
+@media(min-width:820px){.panel{grid-template-columns:1fr 1.1fr;gap:36px}}
+.panel h3{font:600 24px/1.25 var(--display);margin:0 0 8px}
+.panel p{margin:0 0 14px}
+.tags{display:flex;flex-wrap:wrap;gap:8px;padding:0;margin:0;list-style:none}
+.tags li{font:600 13px var(--display);background:var(--chip);padding:4px 11px;border-radius:99px}
+.demo{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:18px;display:grid;gap:12px;align-content:start}
+.demo label,.demo .q{font:600 15px var(--display)}
+.demo small{color:var(--muted);font-size:14px;line-height:1.4}
+input[type=text],input[type=email],textarea{width:100%;font:17px var(--body);padding:10px 12px;border-radius:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+input[type=range]{width:100%;accent-color:var(--accent)}
+.row{display:flex;justify-content:space-between;gap:12px;font:600 15px var(--display)}
+.meter{height:14px;border-radius:99px;background:var(--chip);overflow:hidden}
+.meter span{display:block;height:100%;width:0;background:var(--accent);transition:width .35s}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font:600 14px var(--display);padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.out{font:500 16px/1.5 var(--display);min-height:3em}
+.good{color:var(--ok)}.bad{color:var(--warn)}
+/* lists */
+.item{display:grid;gap:4px;padding:18px 0;border-bottom:1px solid var(--line)}
+.item h3{font:600 20px/1.3 var(--display);margin:0}.item .when{color:var(--muted);font-size:15px;margin:0}.item p{margin:0;max-width:42em}
+@media(min-width:760px){.item{grid-template-columns:200px 1fr;gap:32px}}
+.skillbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+#skillout{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-height:4.2em}
+.cgrid{display:grid;gap:16px}
+@media(min-width:820px){.cgrid{grid-template-columns:1fr 1fr;gap:32px}}
+.clist{display:grid;gap:12px;align-content:start}
+.crow{display:flex;justify-content:space-between;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;flex-wrap:wrap}
+.crow b{font:600 15px var(--display);display:block}.crow span{word-break:break-all}
+.crow button{font:600 14px var(--display);padding:7px 12px;border-radius:8px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer}
+form.msg{display:grid;gap:10px;align-content:start}
+footer{padding:32px 0 48px;color:var(--muted);font-size:15px;border-top:1px solid var(--line)}
+#themeBtn{background:none;border:1px solid var(--line);color:var(--ink);font:600 14px var(--display);padding:6px 12px;border-radius:99px;cursor:pointer}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.meter span{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+  <span>Pratiksha</span>
+  <nav aria-label="Primary"><a href="#work">Work</a><a href="#about">About</a><a href="#skills">Skills</a><a href="#contact">Contact</a><button id="themeBtn" type="button" aria-label="Switch colour theme">Theme</button></nav>
+</header>
+<main>
+<div class="hero" id="hero">
+  <h1>Web applications with machine learning built in.</h1>
+  <p class="lead">I’m <b>Pratiksha</b>, a computer applications postgraduate with a solid academic foundation and hands-on experience. I completed my MCA at Savitribai Phule Pune University, qualified UGC NET in Computer Science, and worked on machine learning through a six-month industry internship. I’m now looking to bring that grounding to a fresher or junior role in Maharashtra.</p>
+  <div class="btns"><a class="btn primary" href="#work">Try my projects</a><a class="btn" href="#contact">Get in touch</a></div>
+</div>
+
+<section id="work">
+  <h2>Work you can click</h2>
+  <p class="sub">Three things I’ve built. Each comes with a small demo of the idea behind it, so you can play with it instead of just reading about it.</p>
+  <div class="win">
+
+    <div class="panel" id="p0">
+      <div>
+        <h3>AI-Powered Language Learning and Speaking Coach</h3>
+        <p>My MCA final-year project. Learners practise French and Spanish out loud, the browser recognises their speech, and the app scores each answer against model answers with TF-IDF cosine similarity. The Gemini API adds feedback and group-discussion scoring, and a Chart.js dashboard tracks progress. Each language has 18 modules.</p>
+        <ul class="tags"><li>Flask</li><li>scikit-learn</li><li>Web Speech API</li><li>Gemini API</li><li>Chart.js</li></ul>
+      </div>
+      <div class="demo">
+        <div class="q">Practice word: <b>restaurant</b></div>
+        <input type="text" id="ans" placeholder="Type the word" aria-label="Type the practice word" autocomplete="off">
+        <div class="chips" id="words" role="group" aria-label="Example attempts"><button class="chip" type="button">restaurant</button><button class="chip" type="button">resturant</button><button class="chip" type="button">restrant</button><button class="chip" type="button">hotel</button><button class="chip" type="button" id="clr">Clear</button></div>
+        <small>Type the word, or tap an example.</small>
+        <div class="row"><span>Match score</span><span id="simv">0%</span></div>
+        <div class="meter" aria-hidden="true"><span id="simbar"></span></div>
+        <div class="out" id="simout" aria-live="polite">Your result appears here.</div>
+        <small>This demo checks spelling with a simple edit distance. The real coach scores spoken French and Spanish answers against model answers using TF-IDF cosine similarity.</small>
+      </div>
+    </div>
+
+    <div class="panel" id="p1">
+      <div>
+        <h3>LoanIQ</h3>
+        <p>A loan default prediction system. I trained and compared five classifiers, engineered five new features, tuned hyperparameters, and wrapped the best model in a Flask web app with a REST API and a SQLite database.</p>
+        <ul class="tags"><li>Python</li><li>scikit-learn</li><li>Flask</li><li>REST API</li><li>SQLite</li></ul>
+      </div>
+      <div class="demo">
+        <label for="inc">Monthly income: <span id="incv"></span></label>
+        <input type="range" id="inc" min="15000" max="200000" step="5000" value="50000">
+        <label for="loan">Loan amount: <span id="loanv"></span></label>
+        <input type="range" id="loan" min="50000" max="3000000" step="50000" value="500000">
+        <label for="yrs">Repayment period: <span id="yrsv"></span></label>
+        <input type="range" id="yrs" min="1" max="20" step="1" value="5">
+        <div class="row"><span>Default risk</span><span id="riskv"></span></div>
+        <div class="meter" aria-hidden="true"><span id="riskbar"></span></div>
+        <div class="out" id="riskout" aria-live="polite"></div>
+        <small>An illustrative rule of thumb based on monthly instalment (assuming 11% annual interest) versus income. It is not the trained model.</small>
+      </div>
+    </div>
+
+    <div class="panel" id="p2">
+      <div>
+        <h3>Sai Krupaa Clinic website</h3>
+        <p>A live website for a family clinic in Shirdi with pages for services, doctors, appointments and contact. Forms send email through EmailJS and are guarded by a honeypot and Google reCAPTCHA v2. Get Directions opens turn-by-turn navigation in Google Maps. Deployed on Vercel.</p>
+        <ul class="tags"><li>React</li><li>Vite</li><li>React Router</li><li>CSS Modules</li><li>EmailJS</li><li>Vercel</li></ul>
+      </div>
+      <div class="demo">
+        <div class="q">Appointment request preview</div>
+        <div class="chips" id="svc" role="group" aria-label="Reason for visit">
+          <button class="chip" type="button" aria-pressed="true">General consultation</button><button class="chip" type="button" aria-pressed="false">Family care</button><button class="chip" type="button" aria-pressed="false">Homeopathic consultation</button><button class="chip" type="button" aria-pressed="false">Health checkup</button>
+        </div>
+        <div class="chips" id="slot" role="group" aria-label="Preferred time">
+          <button class="chip" type="button" aria-pressed="true">Morning</button><button class="chip" type="button" aria-pressed="false">Afternoon</button><button class="chip" type="button" aria-pressed="false">Evening</button>
+        </div>
+        <div class="out" id="apptout" aria-live="polite"></div>
+        <small>A sketch of the booking flow, not connected to the real clinic.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <h2>About</h2>
+  <p class="sub">I started with a BBA-CA degree and went on to an MCA at Savitribai Phule Pune University (KKWIEER, Nashik), where my focus moved toward web applications, machine learning and data analytics.</p>
+  <p class="sub">I completed a six-month machine learning internship, built a full-stack language coach for my final-year project, and launched a live site for a clinic in Shirdi. What keeps me interested is the stretch where an idea becomes something people can try for themselves, and that is where web development and machine learning meet for me. Tutoring Mathematics, Science and English also taught me to explain technical ideas in plain words.</p>
+  <div>
+    <div class="item"><p class="when">6 months</p><div><h3>Machine Learning Using Python intern</h3><p>R3 Systems India Pvt. Ltd.</p></div></div>
+    <div class="item"><p class="when">2026</p><div><h3>MCA, Savitribai Phule Pune University</h3><p>KKWIEER, Nashik.</p></div></div>
+    <div class="item"><p class="when">Qualified</p><div><h3>UGC NET Computer Science (Code 87)</h3><p>Eligible for Assistant Professor roles and PhD admission.</p></div></div>
+    <div class="item"><p class="when">Ongoing</p><div><h3>Tutor</h3><p>Mathematics, Science and English.</p></div></div>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>Skills</h2>
+  <p class="sub">Tap a group to see the tools and technologies I use in that area.</p>
+  <div class="skillbar" id="skillbar" role="group" aria-label="Skill groups">
+    <button class="chip" type="button" aria-pressed="true" data-k="web">Web development</button>
+    <button class="chip" type="button" aria-pressed="false" data-k="ml">Machine learning</button>
+    <button class="chip" type="button" aria-pressed="false" data-k="data">Data and analytics</button>
+    <button class="chip" type="button" aria-pressed="false" data-k="tools">Tools and services</button>
+  </div>
+  <div id="skillout" aria-live="polite"></div>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <p class="sub">I’d love to hear about openings, projects or ideas. Write to me by email or leave a message below, and I will reply as soon as I can.</p>
+  <div class="cgrid">
+    <div class="clist">
+      <div class="crow"><div><b>Email</b><span><a href="mailto:pratiksha.3025@gmail.com">pratiksha.3025@gmail.com</a></span></div><button type="button" id="copy">Copy</button></div>
+      <div class="crow"><div><b>GitHub</b><span><a href="https://github.com/pratiksha9994" target="_blank" rel="noopener">github.com/pratiksha9994</a></span></div></div>
+      <div class="crow"><div><b>Location</b><span>Shirdi, Maharashtra</span></div></div>
+    </div>
+    <form class="msg" id="msg">
+      <label for="nm" class="q" style="font:600 15px var(--display)">Your name</label>
+      <input type="text" id="nm" autocomplete="name">
+      <label for="tx" style="font:600 15px var(--display)">Message</label>
+      <textarea id="tx" rows="4"></textarea>
+      <div class="btns"><a class="btn primary" id="gm" href="#" target="_blank" rel="noopener">Send with Gmail</a><a class="btn" id="ml" href="#">Use my email app</a></div>
+      <small style="color:var(--muted)">Write your message above, then choose how to send it. Gmail opens in a new tab, or you can use the email app already on your device.</small>
+    </form>
+  </div>
+</section>
+</main>
+<footer>Pratiksha · Shirdi, Maharashtra</footer>
+</div>
+<script>
+var $=function(i){return document.getElementById(i)};
+/* spotlight: offsets match the ::before box (24px left, 40px up) */
+if(matchMedia("(pointer:fine)").matches&&!matchMedia("(prefers-reduced-motion:reduce)").matches){
+  var h=$("hero");h.addEventListener("pointermove",function(e){var r=h.getBoundingClientRect();h.style.setProperty("--mx",(e.clientX-r.left+24)+"px");h.style.setProperty("--my",(e.clientY-r.top+40)+"px")});
+}
+/* theme */
+$("themeBtn").onclick=function(){var r=document.documentElement,d=r.getAttribute("data-theme")==="dark"||(!r.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);r.setAttribute("data-theme",d?"light":"dark")};
+/* demo 1: spelling match */
+var target="restaurant";
+function lev(a,b){var m=[],i,j;for(i=0;i<=a.length;i++){m[i]=[i]}for(j=1;j<=b.length;j++){m[0][j]=j}for(i=1;i<=a.length;i++){for(j=1;j<=b.length;j++){m[i][j]=Math.min(m[i-1][j]+1,m[i][j-1]+1,m[i-1][j-1]+(a[i-1]===b[j-1]?0:1))}}return m[a.length][b.length]}
+$("ans").oninput=function(){
+  var a=this.value.toLowerCase().trim(),b=target;
+  if(!a.length){$("simv").textContent="0%";$("simbar").style.width="0";$("simout").textContent="Your result appears here.";return}
+  var d=lev(a,b);
+  var s=Math.max(0,Math.round(100*(1-d/Math.max(a.length,b.length))));
+  $("simv").textContent=s+"%";$("simbar").style.width=s+"%";
+  $("simout").innerHTML=s===100?'<span class="good">Perfect spelling.</span>':s>=70?'Close. Check the spelling.':'Not yet. Try again.';
+};
+$("words").onclick=function(e){var b=e.target.closest(".chip");if(!b)return;var a=$("ans");a.value=b.id==="clr"?"":b.textContent;a.oninput()};
+/* demo 2: risk (standard EMI formula at 11% a year) */
+function inr(n){return "₹"+n.toLocaleString("en-IN")}
+function risk(){
+  var i=+$("inc").value,l=+$("loan").value,y=+$("yrs").value;
+  $("incv").textContent=inr(i);$("loanv").textContent=inr(l);$("yrsv").textContent=y+(y===1?" year":" years");
+  var n=y*12,rm=0.11/12,g=Math.pow(1+rm,n),emi=l*rm*g/(g-1),r=emi/i,p=Math.max(2,Math.min(95,Math.round(r*120)));
+  var share=r>1?"more than 100%":Math.round(r*100)+"%";
+  $("riskv").textContent=p+"%";$("riskbar").style.width=p+"%";
+  $("riskout").innerHTML="Monthly instalment about "+inr(Math.round(emi))+", which is "+share+" of income. "+(p<25?'<span class="good">Low risk.</span>':p<55?'Moderate risk.':'<span class="bad">High risk.</span>');
+}
+["inc","loan","yrs"].forEach(function(k){$(k).oninput=risk});risk();
+/* demo 3: appointment */
+function group(id,cb){var g=$(id);g.onclick=function(e){var b=e.target.closest(".chip");if(!b)return;[].forEach.call(g.children,function(c){c.setAttribute("aria-pressed",c===b)});cb()}}
+function appt(){var s=document.querySelector("#svc [aria-pressed=true]").textContent,t=document.querySelector("#slot [aria-pressed=true]").textContent.toLowerCase();$("apptout").innerHTML="Request: <b>"+s+"</b>, preferred time <b>"+t+"</b>. A real submission passes the honeypot and reCAPTCHA checks, then goes to the clinic by email."}
+group("svc",appt);group("slot",appt);appt();
+/* skills */
+var sk={web:"Flask, REST APIs, React, Vite, React Router, CSS Modules, HTML, CSS, JavaScript",ml:"Python, scikit-learn, classification models, feature engineering, hyperparameter tuning, TF-IDF text similarity",data:"SQLite, data analysis, Chart.js dashboards",tools:"GitHub, Vercel, EmailJS, Google reCAPTCHA, Google Maps embeds, Gemini API"};
+var sb=$("skillbar");function showSk(k){[].forEach.call(sb.children,function(c){c.setAttribute("aria-pressed",c.dataset.k===k)});$("skillout").textContent=sk[k]}
+sb.onclick=function(e){var b=e.target.closest(".chip");if(b)showSk(b.dataset.k)};showSk("web");
+/* contact */
+$("copy").onclick=function(){var b=this;function ok(){b.textContent="Copied";setTimeout(function(){b.textContent="Copy"},1500)}try{navigator.clipboard.writeText("pratiksha.3025@gmail.com").then(ok,function(){b.textContent="Select and copy"})}catch(e){b.textContent="Select and copy"}};
+function mailLinks(){var n=$("nm").value.trim(),t=$("tx").value.trim(),s=encodeURIComponent("Hello from your portfolio"+(n?" - "+n:"")),b=encodeURIComponent(t+(n?"\n\n"+n:""));$("gm").href="https://mail.google.com/mail/?view=cm&fs=1&to=pratiksha.3025@gmail.com&su="+s+"&body="+b;$("ml").href="mailto:pratiksha.3025@gmail.com?subject="+s+"&body="+b}
+$("nm").oninput=mailLinks;$("tx").oninput=mailLinks;mailLinks();
+$("msg").onsubmit=function(e){e.preventDefault()};
+</script>
+</body>
+</html> 
+
+
+
+
+
